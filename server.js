@@ -1,11 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const controllers = require("./controllers/tasks"); 
+const controllers = require("./controllers/tasks");
 const errorHandler = require("./middlewares/error-handler");
 const dotenv = require("dotenv")
+const cors = require("cors")
 const notFound = require("./middlewares/not-found")
 
 const app = express();
+app.use(cors({
+  origin: "http://localhost:5173"
+}));
 dotenv.config()
 app.use(express.json());
 
